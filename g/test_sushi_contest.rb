@@ -1,9 +1,9 @@
 require "minitest/autorun"
-require_relative "g"
+require_relative "sushi_contest"
 
 describe "SushiContest" do
   it "must determine the winner (Case #1)" do
-    contest = SushiContest.new(5, "01010")
+    contest = SushiContest.new("01010")
 
     contest.eat(1)
     contest.eat(2)
@@ -12,7 +12,7 @@ describe "SushiContest" do
   end
 
   it "must determine the winner (Case #2)" do
-    contest = SushiContest.new(6, "110101")
+    contest = SushiContest.new("110101")
 
     contest.eat(1)
     contest.eat(2)
@@ -22,7 +22,7 @@ describe "SushiContest" do
   end
 
   it "must transition states after eating" do
-    contest = SushiContest.new(5, "01010")
+    contest = SushiContest.new("01010")
     contest.eat(1)
 
     contest.state.must_equal("00100")

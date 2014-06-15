@@ -1,12 +1,16 @@
 class SushiContest
-  def initialize(tray_count, state)
+  def initialize(state)
     @state = state
     @players = ["Adam", "Betka"].cycle
     
-    @players.next
+    @current_player = @players.next
   end
 
-  attr_reader :state
+  attr_reader :state, :current_player
+
+  def size
+    @state.size
+  end
 
   def winner
     return "Nobody" if @state[/1/]
@@ -21,6 +25,6 @@ class SushiContest
     @state.slice!(0)
     @state << "0"
 
-    @players.next
+    @current_player = @players.next
   end
 end
